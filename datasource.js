@@ -5,10 +5,11 @@ var _db;
 
 var mongoUri = util.format('mongodb://%s:%s@%s:%d/%s',
     config.mongodb.username, config.mongodb.password, config.mongodb.host, config.mongodb.port, config.mongodb.databaseName);
-//var mongoUri = 'mongodb://localhost:27017'
+
 module.exports = {
     connectToServer: function (callback) {
         /** Connect to the Mongo database at the URI using the client **/
+        console.log(mongoUri);
         MongoClient.connect(mongoUri, { auto_reconnect: true, useNewUrlParser: true }, function (err, client) {
             if (err) throw err;
             else if (!client) {
