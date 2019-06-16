@@ -111,6 +111,7 @@ app.get('/staff', function (req, res) {
         if (err) {
             return console.log(err)
         }
+        res.setHeader('Content-Type', 'application/json');
         res.send(results);
     })
 })
