@@ -3,10 +3,12 @@ const app = express()
 const mongoClient = require('./datasource.js');
 var mongodb = require('mongodb')
 var config = require('./config');
+var cors = require('cors')
 const port = config.server.port;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 var db
 
