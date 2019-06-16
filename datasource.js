@@ -18,7 +18,7 @@ module.exports = {
             else {
                 console.log('Connected to MongoDB database server at:');
                 console.log('\n\t%s\n', mongoUri);
-                _db = client.db('NHSTraning');
+                _db = client.db(config.mongodb.databaseName);
             }
             return callback(err);
         });
