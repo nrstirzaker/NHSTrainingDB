@@ -11,7 +11,59 @@ var db
 
 app.get('/', (req, res) => res.send('Server is running'))
 
+app.get('/training', function (req, res) {
+    db.collection('training').find().toArray(function (err, results) {
+        if (err) {
+            return console.log(err)
+        }
+        res.send(results);
+    })
+})
 
+app.post('/role', function (req, res) {
+    db.collection('role').insertOne(req.body, function (err, result) {
+        if (err) {
+            return console.log(err)
+        }
+        res.sendStatus(200);
+    });
+});
+
+app.get('/role', function (req, res) {
+    db.collection('role').find().toArray(function (err, results) {
+        if (err) {
+            return console.log(err)
+        }
+        res.send(results);
+    })
+})
+
+app.post('/role', function (req, res) {
+    db.collection('role').insertOne(req.body, function (err, result) {
+        if (err) {
+            return console.log(err)
+        }
+        res.sendStatus(200);
+    });
+});
+
+app.get('/equipment', function (req, res) {
+    db.collection('equipment').find().toArray(function (err, results) {
+        if (err) {
+            return console.log(err)
+        }
+        res.send(results);
+    })
+})
+
+app.post('/equipment', function (req, res) {
+    db.collection('equipment').insertOne(req.body, function (err, result) {
+        if (err) {
+            return console.log(err)
+        }
+        res.sendStatus(200);
+    });
+});
 
 app.get('/staff', function (req, res) {
     db.collection('staff').find().toArray(function (err, results) {
